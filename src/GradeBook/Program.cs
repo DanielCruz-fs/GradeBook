@@ -7,18 +7,27 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-          var book = new Book("dan");
+          var book = new InMemoryBook("dan");
 
-          var done = false;
-          while (!done)
+          EnterGrades(book);
+
+          var result = book.GetStatistics();
+          Console.WriteLine($"avg is: {result.Average}");
+          Console.WriteLine($"low is: {result.Low}");
+          Console.WriteLine($"high is: {result.High}");
+          Console.WriteLine($"letter is: {result.Letter}");
+        }
+
+        private static void EnterGrades(Book book)
+        {
+          while (true)
           {
             Console.WriteLine("Enter a grade or 'q' to quit.");
             var input = Console.ReadLine();
 
             if (input == "q")
             {
-              done = true;
-              continue;
+              break;
             }
 
             try
@@ -40,12 +49,7 @@ namespace GradeBook
             }
           }
 
-          var result = book.GetStatistics();
-          Console.WriteLine($"avg is: {result.Average}");
-          Console.WriteLine($"low is: {result.Low}");
-          Console.WriteLine($"high is: {result.High}");
-          Console.WriteLine($"letter is: {result.Letter}");
         }
-    }
+  }
 
 }
