@@ -7,15 +7,18 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-          var book = new InMemoryBook("dan");
+          // var book = new InMemoryBook("dan");
+          // book object that interacts with files, using OOP
+          var book = new DiskBook("dan");
 
           EnterGrades(book);
 
           var result = book.GetStatistics();
-          Console.WriteLine($"avg is: {result.Average}");
-          Console.WriteLine($"low is: {result.Low}");
-          Console.WriteLine($"high is: {result.High}");
-          Console.WriteLine($"letter is: {result.Letter}");
+          Console.WriteLine($"For the book name is: {book.Name}");
+          Console.WriteLine($"The average is: {result.Average}");
+          Console.WriteLine($"The lowest grade is: {result.Low}");
+          Console.WriteLine($"The highest grade is: {result.High}");
+          Console.WriteLine($"The letter grade is: {result.Letter}");
         }
 
         private static void EnterGrades(IBook book)
