@@ -21,7 +21,7 @@ namespace GradeBook
           throw new ArgumentException($"Invalid {nameof(grade)}");
         }
       }
-      public Statistics GetStatistics()
+      public override Statistics GetStatistics()
       {
         var result = new Statistics();
         result.High = double.MinValue;
