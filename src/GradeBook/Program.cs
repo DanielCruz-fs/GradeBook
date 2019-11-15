@@ -7,9 +7,9 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-          // var book = new InMemoryBook("dan");
+          var book = new InMemoryBook("dan");
           // book object that interacts with files, using OOP
-          var book = new DiskBook("dan");
+          // var book = new DiskBook("dan");
 
           EnterGrades(book);
 
